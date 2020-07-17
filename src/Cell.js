@@ -10,6 +10,7 @@ export default function Cell(props) {
     {
       available: isAvailable,
       border: cell.isBorder,
+      bonus: cell.isBonus,
       flipped: cell.flip,
       [`rotated-${cell.rotation}`]: cell.rotation,
       [`track track-${cell.value}`]: cell.type === "TILE"
@@ -33,6 +34,8 @@ function getContent(cell) {
       );
     case "MOUNTAIN":
       return emoji("⛰", "mountain");
+    case "BONUS":
+      return emoji("☆", "bonus");
     case "MINE":
       return emoji("⚒️", "mine");
     default:

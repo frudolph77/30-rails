@@ -27,6 +27,10 @@
   font-size: 40px;
   line-height: 40px;
 }
+.cell .bonus {
+  font-size: 30px;
+  line-height: 45px;
+}
 .cell .mine {
   font-size: 30px;
   line-height: 45px;

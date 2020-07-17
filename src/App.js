@@ -115,12 +115,13 @@ function initBoard() {
 
 function setupBoard(row, x) {
   return row.map((cell, y) => {
-    const { s: station, m: mountain, mine } = cell;
+    const { s: station, m: mountain, mine, bonus } = cell;
 
     const borders = [0, 7];
     const isBorder = borders.includes(x) || borders.includes(y);
     const isOccupied = isBorder || station > 0 || mountain || mine;
     const type = getType(cell);
+    const isBonus = bonus || (getType(cell) === 'BONUS');
 
     return {
       x,
@@ -128,6 +129,7 @@ function setupBoard(row, x) {
       isOccupied,
       isBorder,
       type,
+      isBonus,
       rotation: 0,
       ...(station && { value: station })
     };
